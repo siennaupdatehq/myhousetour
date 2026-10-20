@@ -45,7 +45,7 @@
   <div id="extended-tour-list" class="tour-list"></div>
 </section>
 <style>
-.extended-dates{margin-top:26px}.extended-note{color:var(--muted,#aaa);font-size:.88rem;line-height:1.6;margin:0 0 16px}.extended-dates .show{cursor:default}.extended-dates .mini-status{white-space:nowrap}.presale-label{display:inline-block;margin:5px 5px 0 0;padding:3px 7px;border:1px solid rgba(255,255,255,.18);border-radius:20px;font-size:.62rem;letter-spacing:.04em;color:var(--muted,#aaa)}
+.extended-dates{margin-top:26px}.extended-note{color:var(--muted,#aaa);font-size:.88rem;line-height:1.6;margin:0 0 16px}.extended-dates .show{cursor:pointer;text-decoration:none;color:inherit}.extended-dates .show:hover{transform:translateY(-1px);filter:brightness(1.08)}.extended-dates .mini-status{white-space:nowrap}.presale-label{display:inline-block;margin:5px 5px 0 0;padding:3px 7px;border:1px solid rgba(255,255,255,.18);border-radius:20px;font-size:.62rem;letter-spacing:.04em;color:var(--muted,#aaa)}
 </style>
 <script>
 (()=>{
@@ -74,7 +74,7 @@ const extendedShows=[
 ['SEP','14','2027','Mexico City, MX','Pepsi Center','General Presale']
 ];
 const root=document.getElementById('extended-tour-list');
-extendedShows.forEach((s,i)=>{const el=document.createElement('div');el.className='show';el.innerHTML=`<div class="datebox"><small>${s[0]}</small><b>${s[1]}</b><em>${s[2]}</em></div><div class="show-info"><b>${String(i+1).padStart(2,'0')} · ${s[3]}</b><span class="venue-line">${s[4]}</span><span class="detail-line"><strong>Tour:</strong> My House Tour Extended</span><span class="event-more">Presale information · Tickets subject to availability</span></div><span class="mini-status fresh">NEW SHOW</span>`;const info=el.querySelector('.show-info');const label=document.createElement('span');label.className='presale-label';label.textContent=s[5];info.appendChild(label);root.appendChild(el)});
+extendedShows.forEach((s,i)=>{const el=document.createElement('a');el.className='show show-link';el.href='https://www.officialsiennaspiro.com/tour/';el.target='_blank';el.rel='noopener noreferrer';el.title='Open Sienna Spiro official tour page for event and ticket links';el.setAttribute('aria-label',`${s[0]} ${s[1]}, ${s[2]} — ${s[4]}, ${s[3]}. Open official tour page for tickets.`);el.innerHTML=`<div class="datebox"><small>${s[0]}</small><b>${s[1]}</b><em>${s[2]}</em></div><div class="show-info"><b>${String(i+1).padStart(2,'0')} · ${s[3]}</b><span class="venue-line">${s[4]}</span><span class="detail-line"><strong>Tour:</strong> My House Tour Extended</span><span class="event-more">Official tour page & tickets ↗</span></div><span class="mini-status fresh">NEW SHOW</span>`;const info=el.querySelector('.show-info');const label=document.createElement('span');label.className='presale-label';label.textContent=s[5];info.appendChild(label);root.appendChild(el)});
 })();
 </script>
 
